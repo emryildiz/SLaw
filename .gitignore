@@ -1,0 +1,14 @@
+
+/Core/SLaw.Application/obj
+/Core/SLaw.Core/obj
+/Core/SLaw.Domain/bin
+/Core/SLaw.Domain/obj
+/Infrastructure/SLaw.Infrastructure/bin
+/Infrastructure/SLaw.Infrastructure/obj
+/Infrastructure/SLaw.Persistence/bin
+/Infrastructure/SLaw.Persistence/Migrations
+/Infrastructure/SLaw.Persistence/obj
+/Presentation/SLaw.API/bin
+/Presentation/SLaw.API/obj
+/Core/SLaw.Core
+/Core/SLaw.Application/bin

@@ -1,0 +1,200 @@
+2024-08-29 16:41:19.511 +03:00 [INF] Now listening on: https://localhost:7252
+2024-08-29 16:41:19.543 +03:00 [INF] Now listening on: http://localhost:5206
+2024-08-29 16:41:19.544 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-29 16:41:19.546 +03:00 [INF] Hosting environment: Development
+2024-08-29 16:41:19.546 +03:00 [INF] Content root path: C:\Users\YAZILIM_18\source\repos\SLaw\Presentation\SLaw.API
+2024-08-29 16:41:23.172 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/swagger/index.html - null null
+2024-08-29 16:41:23.277 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/swagger/index.html - 200 null text/html;charset=utf-8 108.6146ms
+2024-08-29 16:41:23.291 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-29 16:41:23.299 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/_framework/aspnetcore-browser-refresh.js - 200 13752 application/javascript; charset=utf-8 7.9338ms
+2024-08-29 16:41:23.370 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/swagger/v1/swagger.json - null null
+2024-08-29 16:41:23.443 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 73.834ms
+2024-08-29 16:41:44.563 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/api/Lawyers/GetAll - null null
+2024-08-29 16:41:44.575 +03:00 [INF] Request:
+Protocol: HTTP/2
+Method: GET
+Scheme: https
+PathBase: 
+Path: /api/Lawyers/GetAll
+Accept: */*
+Host: localhost:7252
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: [Redacted]
+Referer: [Redacted]
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+sec-fetch-site: [Redacted]
+sec-fetch-mode: [Redacted]
+sec-fetch-dest: [Redacted]
+priority: [Redacted]
+2024-08-29 16:41:44.578 +03:00 [INF] Executing endpoint 'SLaw.API.Controllers.LawyersController.GetAll (SLaw.API)'
+2024-08-29 16:41:44.593 +03:00 [INF] Route matched with {action = "GetAll", controller = "Lawyers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller SLaw.API.Controllers.LawyersController (SLaw.API).
+2024-08-29 16:41:44.638 +03:00 [INF] Executing action method SLaw.API.Controllers.LawyersController.GetAll (SLaw.API) - Validation state: "Valid"
+2024-08-29 16:41:45.492 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT l."Id", l."CellPhone", l."CreatedDate", l."Email", l."Name", l."Phone", l."Surname", l."Title", l."UpdatedDate"
+FROM "Lawyers" AS l
+2024-08-29 16:41:45.557 +03:00 [INF] Executed action method SLaw.API.Controllers.LawyersController.GetAll (SLaw.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 915.0655ms.
+2024-08-29 16:41:45.565 +03:00 [INF] Executing ObjectResult, writing value of type 'SLaw.Application.Dtos.CustomResponseSuccessDto`1[[System.Collections.Generic.List`1[[SLaw.Application.Features.Queries.Lawyers.GetAll.GetAllLawyersQueryResponse, SLaw.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-08-29 16:41:45.582 +03:00 [INF] Response:
+StatusCode: 200
+Content-Type: application/json; charset=utf-8
+2024-08-29 16:41:45.587 +03:00 [INF] Executed action SLaw.API.Controllers.LawyersController.GetAll (SLaw.API) in 989.9078ms
+2024-08-29 16:41:45.588 +03:00 [INF] Executed endpoint 'SLaw.API.Controllers.LawyersController.GetAll (SLaw.API)'
+2024-08-29 16:41:45.590 +03:00 [INF] ResponseBody: {"data":[{"fullName":"string string","title":"string","cellPhone":"string","phone":"string","email":"string"},{"fullName":"emre yıldız","title":"kral","cellPhone":"05380286019","phone":"02242156799","email":"emreyildizcr@hotmail.com"},{"fullName":"string string","title":"string","cellPhone":"string","phone":"string","email":"string"}],"isSuccess":true}
+2024-08-29 16:41:45.595 +03:00 [INF] Duration: 1020.1131ms
+2024-08-29 16:41:45.597 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/api/Lawyers/GetAll - 200 null application/json; charset=utf-8 1033.9055ms
+2024-08-29 16:41:58.545 +03:00 [INF] Application is shutting down...
+2024-08-29 16:53:40.357 +03:00 [INF] Now listening on: https://localhost:7252
+2024-08-29 16:53:40.391 +03:00 [INF] Now listening on: http://localhost:5206
+2024-08-29 16:53:40.394 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-29 16:53:40.394 +03:00 [INF] Hosting environment: Development
+2024-08-29 16:53:40.394 +03:00 [INF] Content root path: C:\Users\YAZILIM_18\source\repos\SLaw\Presentation\SLaw.API
+2024-08-29 16:53:41.242 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/swagger/index.html - null null
+2024-08-29 16:53:41.327 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/swagger/index.html - 200 null text/html;charset=utf-8 88.9928ms
+2024-08-29 16:53:41.337 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-29 16:53:41.347 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/_framework/aspnetcore-browser-refresh.js - 200 13752 application/javascript; charset=utf-8 10.7365ms
+2024-08-29 16:53:41.411 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/swagger/v1/swagger.json - null null
+2024-08-29 16:53:41.480 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 69.6194ms
+2024-08-29 16:53:45.448 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7252/api/Lawyers/Create - application/json 133
+2024-08-29 16:53:45.459 +03:00 [INF] Request:
+Protocol: HTTP/2
+Method: POST
+Scheme: https
+PathBase: 
+Path: /api/Lawyers/Create
+Accept: */*
+Host: localhost:7252
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Type: application/json
+Cookie: [Redacted]
+Origin: [Redacted]
+Referer: [Redacted]
+Content-Length: 133
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+sec-fetch-site: [Redacted]
+sec-fetch-mode: [Redacted]
+sec-fetch-dest: [Redacted]
+priority: [Redacted]
+2024-08-29 16:53:45.462 +03:00 [INF] Executing endpoint 'SLaw.API.Controllers.LawyersController.Create (SLaw.API)'
+2024-08-29 16:53:45.477 +03:00 [INF] Route matched with {action = "Create", controller = "Lawyers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(SLaw.Application.Features.Commands.Lawyers.Create.CreateLawyerCommandRequest) on controller SLaw.API.Controllers.LawyersController (SLaw.API).
+2024-08-29 16:53:45.502 +03:00 [INF] RequestBody: {
+  "name": "string",
+  "surname": "string",
+  "title": "string",
+  "cellPhone": "string",
+  "phone": "string",
+  "email": "string"
+}
+2024-08-29 16:53:45.548 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-08-29 16:53:45.563 +03:00 [INF] Response:
+StatusCode: 400
+Content-Type: application/problem+json; charset=utf-8
+2024-08-29 16:53:45.567 +03:00 [INF] Executed action SLaw.API.Controllers.LawyersController.Create (SLaw.API) in 85.5208ms
+2024-08-29 16:53:45.568 +03:00 [INF] Executed endpoint 'SLaw.API.Controllers.LawyersController.Create (SLaw.API)'
+2024-08-29 16:53:45.568 +03:00 [INF] ResponseBody: {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"Email":["Geçerli eposta giriniz."],"CellPhone":["Telefon numarası 10 karakterden az olamaz","Geçersiz telefon numarası girdiniz."]},"traceId":"00-a0aa1753b2e11bfec9b6cc42613bcb6a-50698bd62ff1495e-00"}
+2024-08-29 16:53:45.571 +03:00 [INF] Duration: 112.1546ms
+2024-08-29 16:53:45.573 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7252/api/Lawyers/Create - 400 null application/problem+json; charset=utf-8 124.4824ms
+2024-08-29 16:53:57.851 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7252/api/Lawyers/Create - application/json 138
+2024-08-29 16:53:57.854 +03:00 [INF] Request:
+Protocol: HTTP/2
+Method: POST
+Scheme: https
+PathBase: 
+Path: /api/Lawyers/Create
+Accept: */*
+Host: localhost:7252
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Type: application/json
+Cookie: [Redacted]
+Origin: [Redacted]
+Referer: [Redacted]
+Content-Length: 138
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+sec-fetch-site: [Redacted]
+sec-fetch-mode: [Redacted]
+sec-fetch-dest: [Redacted]
+priority: [Redacted]
+2024-08-29 16:53:57.856 +03:00 [INF] Executing endpoint 'SLaw.API.Controllers.LawyersController.Create (SLaw.API)'
+2024-08-29 16:53:57.856 +03:00 [INF] Route matched with {action = "Create", controller = "Lawyers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(SLaw.Application.Features.Commands.Lawyers.Create.CreateLawyerCommandRequest) on controller SLaw.API.Controllers.LawyersController (SLaw.API).
+2024-08-29 16:53:57.859 +03:00 [INF] RequestBody: {
+  "name": "string",
+  "surname": "string",
+  "title": "string",
+  "cellPhone": "string",
+  "phone": "05380286019",
+  "email": "string"
+}
+2024-08-29 16:53:57.861 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-08-29 16:53:57.862 +03:00 [INF] Response:
+StatusCode: 400
+Content-Type: application/problem+json; charset=utf-8
+2024-08-29 16:53:57.863 +03:00 [INF] Executed action SLaw.API.Controllers.LawyersController.Create (SLaw.API) in 5.2639ms
+2024-08-29 16:53:57.864 +03:00 [INF] Executed endpoint 'SLaw.API.Controllers.LawyersController.Create (SLaw.API)'
+2024-08-29 16:53:57.867 +03:00 [INF] ResponseBody: {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"Email":["Geçerli eposta giriniz."],"CellPhone":["Telefon numarası 10 karakterden az olamaz","Geçersiz telefon numarası girdiniz."]},"traceId":"00-82f615dfd0bccf6ace8d4c3211cfd84e-fdd620f5df08d7c5-00"}
+2024-08-29 16:53:57.867 +03:00 [INF] Duration: 13.2007ms
+2024-08-29 16:53:57.868 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7252/api/Lawyers/Create - 400 null application/problem+json; charset=utf-8 17.8371ms
+2024-08-29 16:54:04.426 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7252/api/Lawyers/Create - application/json 143
+2024-08-29 16:54:04.429 +03:00 [INF] Request:
+Protocol: HTTP/2
+Method: POST
+Scheme: https
+PathBase: 
+Path: /api/Lawyers/Create
+Accept: */*
+Host: localhost:7252
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Type: application/json
+Cookie: [Redacted]
+Origin: [Redacted]
+Referer: [Redacted]
+Content-Length: 143
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+sec-ch-ua-mobile: [Redacted]
+sec-ch-ua-platform: [Redacted]
+sec-fetch-site: [Redacted]
+sec-fetch-mode: [Redacted]
+sec-fetch-dest: [Redacted]
+priority: [Redacted]
+2024-08-29 16:54:04.430 +03:00 [INF] Executing endpoint 'SLaw.API.Controllers.LawyersController.Create (SLaw.API)'
+2024-08-29 16:54:04.431 +03:00 [INF] Route matched with {action = "Create", controller = "Lawyers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(SLaw.Application.Features.Commands.Lawyers.Create.CreateLawyerCommandRequest) on controller SLaw.API.Controllers.LawyersController (SLaw.API).
+2024-08-29 16:54:04.433 +03:00 [INF] RequestBody: {
+  "name": "string",
+  "surname": "string",
+  "title": "string",
+  "cellPhone": "05380286019",
+  "phone": "05380286019",
+  "email": "string"
+}
+2024-08-29 16:54:04.436 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-08-29 16:54:04.437 +03:00 [INF] Response:
+StatusCode: 400
+Content-Type: application/problem+json; charset=utf-8
+2024-08-29 16:54:04.438 +03:00 [INF] Executed action SLaw.API.Controllers.LawyersController.Create (SLaw.API) in 5.0639ms
+2024-08-29 16:54:04.439 +03:00 [INF] Executed endpoint 'SLaw.API.Controllers.LawyersController.Create (SLaw.API)'
+2024-08-29 16:54:04.440 +03:00 [INF] ResponseBody: {"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"Email":["Geçerli eposta giriniz."],"CellPhone":["Geçersiz telefon numarası girdiniz."]},"traceId":"00-e3154540f72a8b4552b8d4cfcb2851e2-9934530fc90b49c8-00"}
+2024-08-29 16:54:04.441 +03:00 [INF] Duration: 11.9146ms
+2024-08-29 16:54:04.442 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7252/api/Lawyers/Create - 400 null application/problem+json; charset=utf-8 15.8283ms
+2024-08-29 17:13:14.588 +03:00 [INF] Now listening on: https://localhost:7252
+2024-08-29 17:13:14.620 +03:00 [INF] Now listening on: http://localhost:5206
+2024-08-29 17:13:14.623 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-29 17:13:14.624 +03:00 [INF] Hosting environment: Development
+2024-08-29 17:13:14.624 +03:00 [INF] Content root path: C:\Users\YAZILIM_18\source\repos\SLaw\Presentation\SLaw.API
+2024-08-29 17:13:15.312 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/swagger/index.html - null null
+2024-08-29 17:13:15.415 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/swagger/index.html - 200 null text/html;charset=utf-8 109.0299ms
+2024-08-29 17:13:15.438 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-29 17:13:15.449 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/_framework/aspnetcore-browser-refresh.js - 200 13752 application/javascript; charset=utf-8 10.3593ms
+2024-08-29 17:13:15.577 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7252/swagger/v1/swagger.json - null null
+2024-08-29 17:13:15.664 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7252/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 87.6519ms
