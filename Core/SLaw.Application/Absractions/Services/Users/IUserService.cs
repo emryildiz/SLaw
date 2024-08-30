@@ -9,6 +9,8 @@ namespace SLaw.Application.Absractions.Services.Users
 
         public Task UpdateRefreshTokenAsync(string refreshToken, AppUser user, DateTime accessTokenDate, int addOnAccessTokenDate);
 
+        public Task UpdatePasswordAsync(string userId, string resetToken, string newPassword);
+
         public Task<List<ListUserDto>> GetAllUserAsync(int page, int size);
 
         public Task AssignRoleToUserAsync(string userId, string[] roles);

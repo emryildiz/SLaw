@@ -12,3 +12,5 @@
 /Presentation/SLaw.API/obj
 /Core/SLaw.Core
 /Core/SLaw.Application/bin
+/.vs
+/Presentation/SLaw.API/logs

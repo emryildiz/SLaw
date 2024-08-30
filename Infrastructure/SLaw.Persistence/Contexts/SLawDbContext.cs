@@ -1,11 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using SLaw.Domain.Entities;
 using SLaw.Domain.Entities.Common;
+using SLaw.Domain.Entities.Identity;
 
 namespace SLaw.Persistence.Contexts
 {
-    public class SLawDbContext : DbContext
+    public class SLawDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         public DbSet<Lawyer> Lawyers { get; set; }
 

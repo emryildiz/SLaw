@@ -1,8 +1,13 @@
-using System.Net.Mime;
+﻿using System.Net.Mime;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using Serilog.Core;
+using SLaw.API.Middlewares;
 using SLaw.Application;
 using SLaw.Infrastructure;
 using SLaw.Infrastructure.Services.Storage.Local;
@@ -25,6 +30,25 @@ builder.Services.AddInfrastructureServices();
 builder.Services.AddPersistenceServices();
 
 builder.Services.AddStorage<LocalStorage>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+       .AddJwtBearer("Admin", options =>
+                              {
+                                  options.TokenValidationParameters = new()
+                                  {
+                                      ValidateAudience = true,
+                                      ValidateIssuer = true,
+                                      ValidateLifetime = true,
+                                      ValidateIssuerSigningKey = true,
+
+                                      ValidAudience = builder.Configuration["Token:Audience"],
+                                      ValidIssuer = builder.Configuration["Token:Issuer"],
+                                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"] ?? string.Empty)),
+                                      LifetimeValidator = (_, expires, _, _) => expires != null && expires > DateTime.UtcNow,
+
+                                      NameClaimType = ClaimTypes.Name
+                                  };
+                              });
 
 Logger logger = new LoggerConfiguration()
                 .WriteTo.Console()
@@ -49,7 +73,6 @@ builder.Services.AddCors(x => x.AddDefaultPolicy(y => y.AllowAnyHeader()
                                                        .AllowAnyMethod()
                                                        .AllowAnyOrigin()));
 
-
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -59,10 +82,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseStaticFiles();
+
 app.UseSerilogRequestLogging();
 app.UseHttpLogging();
 app.UseHttpsRedirection();
 
+app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseAuthorization();
 
 app.MapControllers();

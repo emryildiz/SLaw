@@ -1,6 +1,8 @@
-﻿namespace SLaw.Application.Dtos
+﻿using MediatR;
+
+namespace SLaw.Application.Features.Commands.Users.CreateUser
 {
-    public class CreateUserDto
+    public class CreateUserCommandRequest : IRequest
     {
         public string Name { get; set; }
 

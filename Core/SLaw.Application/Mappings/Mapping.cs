@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using SLaw.Application.Dtos;
 using SLaw.Application.Features.Commands.Lawyers.Create;
+using SLaw.Application.Features.Commands.Users.CreateUser;
 using SLaw.Application.Features.Queries.Lawyers.GetAll;
 using SLaw.Domain.Entities;
 
@@ -14,6 +16,9 @@ namespace SLaw.Application.Mappings
 
             this.CreateMap<Lawyer, GetAllLawyersQueryResponse>()
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.Name} {src.Surname}"));
+
+            //User
+            this.CreateMap<CreateUserCommandRequest, CreateUserDto>();
         }
     }
 }

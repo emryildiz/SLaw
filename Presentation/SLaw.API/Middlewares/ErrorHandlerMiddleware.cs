@@ -1,7 +1,8 @@
-﻿using System.Net;
+﻿using SLaw.Application.Dtos;
+using SLaw.Application.Exceptions;
+using System.Net;
 using System.Net.Mime;
 using System.Text.Json;
-using SLaw.Application.Dtos;
 
 namespace SLaw.API.Middlewares
 {
@@ -12,7 +13,7 @@ namespace SLaw.API.Middlewares
 
         public ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> logger)
         {
-            this._next = next;
+            this._next   = next;
             this._logger = logger;
         }
 
@@ -27,23 +28,21 @@ namespace SLaw.API.Middlewares
 
                 HttpStatusCode statusCode = exception switch
                 {
-                    _                            => HttpStatusCode.InternalServerError
+                    NotFoundUserException         => HttpStatusCode.NotFound,
+                    AuthenticationFailedException => HttpStatusCode.Forbidden,
+                    PasswordChangeFailedException => HttpStatusCode.Forbidden,
+                    UserCreationErrorException    => HttpStatusCode.Forbidden,
+                    _                             => HttpStatusCode.InternalServerError
                 };
 
                 response.StatusCode = (int)statusCode;
                 string userName = context.User.Identity?.Name;
 
-                if (string.IsNullOrEmpty(userName) == false)
-                {
-                    this._logger.LogInformation($"Username : {userName}");
-                }
+                if (string.IsNullOrEmpty(userName) == false) { this._logger.LogInformation($"Username : {userName}"); }
 
                 IPAddress ipAdress = context.Connection.RemoteIpAddress;
 
-                if (ipAdress is not null)
-                {
-                    this._logger.LogInformation($"Ip Adress : {ipAdress}");
-                }
+                if (ipAdress is not null) { this._logger.LogInformation($"Ip Adress : {ipAdress}"); }
 
                 this._logger.LogError(exception.Message);
 
