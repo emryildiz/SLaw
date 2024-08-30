@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SLaw.Application.Dtos;
-using SLaw.Application.Features.Commands.Users.CreateUser;
 using System.Net;
+using SLaw.Application.Features.Commands.Users.Create;
 
 namespace SLaw.API.Controllers
 {

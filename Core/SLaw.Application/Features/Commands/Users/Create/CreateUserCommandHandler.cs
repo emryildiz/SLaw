@@ -3,7 +3,7 @@ using MediatR;
 using SLaw.Application.Absractions.Services.Users;
 using SLaw.Application.Dtos;
 
-namespace SLaw.Application.Features.Commands.Users.CreateUser
+namespace SLaw.Application.Features.Commands.Users.Create
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommandRequest>
     {

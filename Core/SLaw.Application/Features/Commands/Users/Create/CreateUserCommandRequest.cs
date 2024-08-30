@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace SLaw.Application.Features.Commands.Users.CreateUser
+namespace SLaw.Application.Features.Commands.Users.Create
 {
     public class CreateUserCommandRequest : IRequest
     {

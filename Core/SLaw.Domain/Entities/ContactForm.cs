@@ -1,4 +1,5 @@
-﻿using SLaw.Domain.Entities.Common;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using SLaw.Domain.Entities.Common;
 
 namespace SLaw.Domain.Entities
 {
@@ -11,5 +12,8 @@ namespace SLaw.Domain.Entities
         public string Phone { get; set; }
 
         public string Message { get; set; }
+
+        [NotMapped]
+        public override DateTime UpdatedDate { get; set; }
     }
 }
