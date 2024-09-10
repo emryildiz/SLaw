@@ -1,0 +1,53 @@
+.card{
+    width: 31.2%;
+    height: 400px;
+    border-radius: 4px;
+    padding: 4px;
+    margin-bottom: 10px;
+    margin-left: 1%;
+    gap: 20px;
+}
+
+.title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: monaco,Consolas,Lucida Console,monospace;
+    text-decoration: none;
+    color:inherit;
+}
+
+.title:visited{
+    color:inherit
+}
+
+.readMore{
+    text-decoration: none;
+    color:rgb(0, 85, 196);
+}
+
+.readMore:visited{
+    color:rgb(0, 85, 196);
+}
+
+.description{
+    text-overflow: ellipsis;
+    overflow: hidden;    /* Taşan kısmı gizle */
+    -webkit-line-clamp: 6;       /* 3 satırı aşınca kes */
+    -webkit-box-orient: vertical; /* Dikey hizalama */
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    overflow: hidden;
+    display: -webkit-box;
+    font-size: 1.4rem;
+    color:rgb(0,0,0,.5);
+}
+
+@media (max-width: 900px) {
+    .card{
+        width: 45%;
+    }
+    .title{
+        font-size: 1.8rem;
+    }
+}

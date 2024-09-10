@@ -26,6 +26,8 @@ namespace SLaw.Infrastructure.Services.Storage.Local
 
             foreach (IFormFile file in files)
             {
+                if (file is null) { continue; }
+
                 string fileName = file.FileName; //TODO SEO ve isim düzgünlüğü için file rename işlemi yapılacak.
 
                 await this.CopyAsync(Path.Combine(uploadPath, fileName), file);

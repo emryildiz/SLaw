@@ -1,0 +1,41 @@
+.practiceAreas{
+    margin-top: 20px;
+    font-family: var(--font);
+}
+
+.content{
+    width: 100%;
+    min-height: 320px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.title{
+    position: relative;
+    align-items: center;
+    text-align: center; 
+    flex-direction: column;
+    display: flex;
+}
+
+.title h1{
+    font-size: 4rem;
+}
+
+.title::after{
+    margin-top: 20px;   
+    background-color: black;
+    height: 5px;
+    width: 8%;
+    display: block;
+    content: '';
+}

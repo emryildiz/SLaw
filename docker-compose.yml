@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  slaw.api:
+    image: ${DOCKER_REGISTRY-}slawapi
+    build:
+      context: .
+      dockerfile: Presentation/SLaw.API/Dockerfile
+    networks:
+      - my-network
+  c_slaw:
+    image: slaw-react   
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+    networks:
+      - my-network
+  s_postgres:
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=emre12321
+      - POSTGRES_DB=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - /appdata/postgres:/var/lib/postgresql/data
+    networks: ['mynetwork']
+    
+  s_pgAdmin4:
+    image: dpage/pgadmin4
+    container_name: c_pgAdmin4
+    ports:
+      - 5050:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=emreyildizcr@hotmail.com
+      - PGADMIN_DEFAULT_PASSWORD=emre12321
+    user: '$UID:$GID'
+    volumes:
+      - /appdata/pgAdmin4:/var/lib/pgadmin
+    networks: ['mynetwork']

@@ -1,0 +1,12 @@
+.loading{
+    width: 100%;
+    height: calc(100vh - 340px);
+    font-family: var(--font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading h1{
+    font-size: 5rem;
+}

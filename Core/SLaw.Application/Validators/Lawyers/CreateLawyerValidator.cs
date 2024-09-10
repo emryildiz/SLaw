@@ -35,8 +35,8 @@ namespace SLaw.Application.Validators.Lawyers
                 .WithMessage("{PropertyName} boş bırakılamaz.")
                 .MinimumLength(10).WithMessage("Telefon numarası 10 karakterden az olamaz")
                 .MaximumLength(20).WithMessage("Telefon numarası 20 karakterden fazla olamaz.");
-                //TODO
-                //.Matches(new Regex(@"((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d4")).WithMessage("Geçersiz telefon numarası giriniz.");
+            //TODO Phone Regex
+            //.Matches(new Regex(@"((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d4")).WithMessage("Geçersiz telefon numarası giriniz.");
         }
     }
 }

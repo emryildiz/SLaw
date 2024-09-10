@@ -24,10 +24,14 @@ namespace SLaw.Application.Features.Commands.PracticeAreas.Create
         public async Task Handle(CreatePracticeAreaCommandRequest request, CancellationToken cancellationToken)
         {
             List<(string fileName, string pathOrContainerName)> paths = await this._storageService.UploadAsync(FilePaths.PracticeArea, new FormFileCollection() { request.Image });
-            (string fileName, string pathOrContainerName) path = paths.First();
+            (string fileName, string pathOrContainerName) path = paths.FirstOrDefault();
 
             PracticeArea practiceArea = this._mapper.Map<PracticeArea>(request);
-            practiceArea.ImagePath = Path.Combine(path.pathOrContainerName, path.fileName);
+
+            if (path.fileName is not null && path.pathOrContainerName is not null)
+            {
+                practiceArea.ImagePath = Path.Combine(path.pathOrContainerName, path.fileName);
+            }
 
             await this._repository.AddAsync(practiceArea);
             await this._repository.SaveChangesAsync();

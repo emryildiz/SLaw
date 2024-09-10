@@ -6,6 +6,7 @@ using SLaw.Application.Features.Commands.PracticeAreas.Delete;
 using SLaw.Application.Features.Commands.PracticeAreas.Update;
 using SLaw.Application.Features.Queries.PracticeAreas.GetAll;
 using System.Net;
+using SLaw.Application.Features.Queries.PracticeAreas.GetById;
 
 namespace SLaw.API.Controllers
 {
@@ -19,7 +20,7 @@ namespace SLaw.API.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Create(CreatePracticeAreaCommandRequest request)
+        public async Task<IActionResult> Create([FromForm] CreatePracticeAreaCommandRequest request)
         {
             await this._mediator.Send(request);
 
@@ -32,6 +33,14 @@ namespace SLaw.API.Controllers
             List<GetAllPracticeAreaQueryResponse> response = await this._mediator.Send(new GetAllPracticeAreaQueryRequest());
 
             return this.CreateActionResult(CustomResponseSuccessDto<List<GetAllPracticeAreaQueryResponse>>.Create(HttpStatusCode.OK, response));
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetById([FromQuery]GetByIdPracticeAreaQueryRequest request)
+        {
+            GetByIdPracticeAreaQueryResponse response = await this._mediator.Send(request);
+
+            return this.CreateActionResult(CustomResponseSuccessDto<GetByIdPracticeAreaQueryResponse>.Create(HttpStatusCode.OK, response));
         }
 
         [HttpPut("[action]")]

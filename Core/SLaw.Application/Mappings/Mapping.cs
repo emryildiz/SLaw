@@ -4,9 +4,11 @@ using SLaw.Application.Features.Commands.ContactForms.Create;
 using SLaw.Application.Features.Commands.Lawyers.Create;
 using SLaw.Application.Features.Commands.PracticeAreas.Create;
 using SLaw.Application.Features.Commands.Users.Create;
+using SLaw.Application.Features.Queries.AboutUs.GetAboutUs;
 using SLaw.Application.Features.Queries.ContactForms.GetAll;
 using SLaw.Application.Features.Queries.Lawyers.GetAll;
 using SLaw.Application.Features.Queries.PracticeAreas.GetAll;
+using SLaw.Application.Features.Queries.PracticeAreas.GetById;
 using SLaw.Domain.Entities;
 
 namespace SLaw.Application.Mappings
@@ -30,7 +32,11 @@ namespace SLaw.Application.Mappings
 
             //PracticeArea
             this.CreateMap<CreatePracticeAreaCommandRequest, PracticeArea>();
-            this.CreateMap<PracticeArea, GetAllPracticeAreaQueryResponse>();
+            this.CreateMap<PracticeArea, GetAllPracticeAreaQueryResponse>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id.ToString()));
+            this.CreateMap<PracticeArea, GetByIdPracticeAreaQueryResponse>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id.ToString()));
+
+            //AboutUs
+            this.CreateMap<AboutUs, GetAboutUsQueryResponse>();
         }
     }
 }

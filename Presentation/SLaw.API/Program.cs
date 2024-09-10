@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Prometheus;
 using Serilog;
 using Serilog.Core;
+using SLaw.API;
 using SLaw.API.Middlewares;
 using SLaw.Application;
 using SLaw.Infrastructure;
@@ -83,6 +85,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseStaticFiles();
+app.UseHttpMetrics();
 
 app.UseSerilogRequestLogging();
 app.UseHttpLogging();
@@ -90,7 +93,12 @@ app.UseHttpsRedirection();
 
 app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseAuthorization();
-
+//TODO METRICS
+app.MapMetrics();
 app.MapControllers();
+
+app.UseCors();
+
+DataGenerator.Generate(app.Services.GetService<SLawDbContext>());
 
 app.Run();

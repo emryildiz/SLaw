@@ -1,0 +1,54 @@
+.contactForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--font);
+    padding: 20px 20px 20px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    height: calc(100% - 40px);
+}
+
+.contactForm h1{
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.contactForm span{
+    font-size: 1.5rem;
+}
+
+.input{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input input{
+    box-sizing: border-box;
+    width: 100%;
+    height: 70%;
+    height: 40px;
+    border-width: 1px;
+    border-radius: 3px;
+}
+
+.input textarea{
+    box-sizing: border-box;
+    width: 100%;
+    border-width: 1px;
+    border-radius: 3px;
+    resize: none;
+}
+
+.submitButton{
+    float:right;
+}
+
+.submitButton button{
+    background-color: inherit;
+    border-width: 1px;
+    border-radius: 3px;
+    width: 100px;
+    height: 40px;
+}
