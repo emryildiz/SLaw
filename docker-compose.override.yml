@@ -10,5 +10,4 @@ services:
       - 7251:8080
       - 7252:8081
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ~/.aspnet/https:/https:ro

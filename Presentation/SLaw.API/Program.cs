@@ -104,6 +104,4 @@ app.MapControllers();
 
 app.UseCors();
 
-DataGenerator.Generate(app.Services.GetService<SLawDbContext>());
-
 app.Run();
