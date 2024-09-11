@@ -1,24 +1,28 @@
-version: '3.4'
-
 services:
-  slaw.api:
-    image: ${DOCKER_REGISTRY-}slawapi
+  c_slaw_api:
+    image: slaw-api
     build:
       context: .
       dockerfile: Presentation/SLaw.API/Dockerfile
     networks:
-      - my-network
-  c_slaw:
-    image: slaw-react   
+      slaw_network:
+        ipv4_address: 172.20.2.5
+    depends_on:
+        - s_postgres
+  c_slaw_client:
+    image: slaw-client
     build:
-      context: .
+      context: Presentation/slaw.client
       dockerfile: ./Dockerfile
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
     ports:
       - 3000:3000
+      - 9229:9229
     networks:
-      - my-network
+      slaw_network:
+        ipv4_address: 172.20.2.2
+    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
   s_postgres:
     environment:
       - POSTGRES_USER=postgres
@@ -32,8 +36,9 @@ services:
       - 5432:5432
     volumes:
       - /appdata/postgres:/var/lib/postgresql/data
-    networks: ['mynetwork']
-    
+    networks:
+      slaw_network:
+        ipv4_address: 172.20.2.3
   s_pgAdmin4:
     image: dpage/pgadmin4
     container_name: c_pgAdmin4
@@ -45,4 +50,12 @@ services:
     user: '$UID:$GID'
     volumes:
       - /appdata/pgAdmin4:/var/lib/pgadmin
-    networks: ['mynetwork']
+    networks:
+      slaw_network:
+        ipv4_address: 172.20.2.4
+networks:
+  slaw_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.2.0/24
