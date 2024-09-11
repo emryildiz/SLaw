@@ -77,10 +77,8 @@ builder.Services.AddCors(x => x.AddDefaultPolicy(y => y.AllowAnyHeader()
 
 WebApplication app = builder.Build();
 
-
 SLawDbContext context = app.Services.GetRequiredService<SLawDbContext>();
 context.Database.Migrate();
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

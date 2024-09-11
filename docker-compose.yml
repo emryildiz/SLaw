@@ -17,12 +17,10 @@ services:
     environment:
       NODE_ENV: development
     ports:
-      - 3000:3000
-      - 9229:9229
+      - 3000:80
     networks:
       slaw_network:
         ipv4_address: 172.20.2.2
-    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
   s_postgres:
     environment:
       - POSTGRES_USER=postgres
