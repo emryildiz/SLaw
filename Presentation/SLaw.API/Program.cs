@@ -81,7 +81,7 @@ SLawDbContext context = app.Services.GetRequiredService<SLawDbContext>();
 context.Database.Migrate();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+//if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -101,5 +101,7 @@ app.MapMetrics();
 app.MapControllers();
 
 app.UseCors();
+
+DataGenerator.Generate(app.Services.GetService<SLawDbContext>());
 
 app.Run();

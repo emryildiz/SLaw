@@ -17,7 +17,10 @@ services:
     environment:
       NODE_ENV: development
     ports:
-      - 3000:80
+      - 80:80
+      - 443:443
+    volumes:
+      - ~/etc/positivessl/live/seshukuk/:/etc/positivessl/live/seshukuk:ro
     networks:
       slaw_network:
         ipv4_address: 172.20.2.2

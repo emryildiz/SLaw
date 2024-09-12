@@ -15,6 +15,7 @@ export const getPracticeAreaById = async (id) => {
 
 export const getAboutUs = async() => {
     const url = `${process.env.REACT_APP_BASE_ENDPOINT}/AboutUs/Get`
+    console.log(url)
     const { data } = await axios.get(url)
 
     return data
